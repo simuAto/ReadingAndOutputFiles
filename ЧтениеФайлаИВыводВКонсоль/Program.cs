@@ -19,30 +19,38 @@
 
             Console.WriteLine("Введите путь к файлу:");
             string filePath = Console.ReadLine();
-            Console.Clear();
 
             // Очищаем путь от кавычек (работает, даже если кавычек нет).
             filePath = filePath.Trim('"');
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine("Файла по указанному пути не существует!");
+                return;
+            }
+
+            Console.Clear();
             string[] allStrings = File.ReadAllLines(filePath);
-            
+
             foreach (string str in allStrings)
             {
-                if (str.Trim().StartsWith(TAGSeries))
+                string trimmedStr = str.Trim();
+
+                if (trimmedStr.StartsWith(TAGSeries))
                 {
-                    series = str.Replace(TAGSeries, "").Trim();
+                    series = trimmedStr.Replace(TAGSeries, "").Trim();
                     continue;
                 }
-                if (str.Trim().StartsWith(TAGSeason))
+                if (trimmedStr.StartsWith(TAGSeason))
                 {
                     // Находим число сезона и превращаем в число.
-                    string t = str.Replace(TAGSeason, "").Trim();
-                    season = int.Parse(t);                
+                    string value = trimmedStr.Replace(TAGSeason, "").Trim();
+                    season = int.Parse(value);                
                     continue;
                 }
-                if (str.Trim().StartsWith(TAGEpisode))
+                if (trimmedStr.StartsWith(TAGEpisode))
                 {
-                    string t = str.Replace(TAGEpisode, "").Trim();
-                    episode = int.Parse(t);
+                    string value = str.Replace(TAGEpisode, "").Trim();
+                    episode = int.Parse(value);
                     continue;
                 }
                 Console.WriteLine(str);
