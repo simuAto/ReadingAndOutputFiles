@@ -9,14 +9,6 @@
             //Нахождение тегов.
             //Вывод текста без тегов.
 
-            string TAGSeries = "[Series]";
-            string TAGSeason = "[Season]";
-            string TAGEpisode = "[Episode]";
-
-            string series = "";
-            int season = 1;
-            int episode = 1;
-
             Console.WriteLine("Введите путь к файлу:");
             string filePath = Console.ReadLine();
 
@@ -29,34 +21,12 @@
             }
 
             Console.Clear();
-            string[] allStrings = File.ReadAllLines(filePath);
+            NoteFileReader reader = new NoteFileReader();
+            EpisodeNote note = reader.ReadFromFile(filePath);
 
-            foreach (string str in allStrings)
-            {
-                string trimmedStr = str.Trim();
-
-                if (trimmedStr.StartsWith(TAGSeries))
-                {
-                    series = trimmedStr.Replace(TAGSeries, "").Trim();
-                    continue;
-                }
-                if (trimmedStr.StartsWith(TAGSeason))
-                {
-                    // Находим число сезона и превращаем в число.
-                    string value = trimmedStr.Replace(TAGSeason, "").Trim();
-                    season = int.Parse(value);                
-                    continue;
-                }
-                if (trimmedStr.StartsWith(TAGEpisode))
-                {
-                    string value = str.Replace(TAGEpisode, "").Trim();
-                    episode = int.Parse(value);
-                    continue;
-                }
-                Console.WriteLine(str);
-            }
+            Console.WriteLine($"Это {note.Season} сезон {note.Episode} серия произведения: {note.Series}");
             Console.WriteLine();
-            Console.WriteLine($"Это {season} сезон {episode} серия произведения: {series}");
+            Console.WriteLine(note.Thought);
         }
     }
 }

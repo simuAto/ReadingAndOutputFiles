@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37614.0 d17.14
+VisualStudioVersion = 17.14.37614.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ЧтениеФайлаИВыводВКонсоль", "ЧтениеФайлаИВыводВКонсоль\ЧтениеФайлаИВыводВКонсоль.csproj", "{E5E4FEAF-E64C-4898-8B00-D3793EB27CF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustTraining", "JustTraining\JustTraining.csproj", "{FA43F6D7-729E-4ECC-B8AC-DB35544C5AC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E5E4FEAF-E64C-4898-8B00-D3793EB27CF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5E4FEAF-E64C-4898-8B00-D3793EB27CF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5E4FEAF-E64C-4898-8B00-D3793EB27CF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA43F6D7-729E-4ECC-B8AC-DB35544C5AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA43F6D7-729E-4ECC-B8AC-DB35544C5AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA43F6D7-729E-4ECC-B8AC-DB35544C5AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA43F6D7-729E-4ECC-B8AC-DB35544C5AC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
