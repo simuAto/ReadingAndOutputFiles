@@ -24,9 +24,14 @@
             NoteFileReader reader = new NoteFileReader();
             EpisodeNote note = reader.ReadFromFile(filePath);
 
-            Console.WriteLine($"Это {note.Season} сезон {note.Episode} серия произведения: {note.Series}");
-            Console.WriteLine();
-            Console.WriteLine(note.Thought);
+            Console.WriteLine("Укажите имя для главной папки (по умолчанию \"Library\"):");
+            string rootFolderPath = Console.ReadLine();
+            NoteStorage storage = new NoteStorage(rootFolderPath);
+
+            Console.Clear();
+            string savedPath = storage.AddNote(note);
+
+            Console.WriteLine($"Заметка по {note.Series} (S{note.Season}E{note.Episode}) сохранена по пути:\n{savedPath}");
         }
     }
 }
